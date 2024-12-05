@@ -1,4 +1,4 @@
-<header class="text-white bg-black shadow">
+<header class="text-white bg-black">
   <x-container>
     <nav class="flex items-center justify-between py-4">
       <a
