@@ -1,8 +1,12 @@
 {
-  "name": "Thijs Veldwisch",
+  "name": "sandeeeerr/thijsveldwisch",
   "type": "project",
-  "description": "",
-  "keywords": "",
+  "description": "Lorem Flipsem",
+  "keywords": [
+    "laravel",
+    "livewire",
+    "filament"
+  ],
   "license": "MIT",
   "require": {
     "php": "^8.2",
