@@ -1,12 +1,8 @@
 {
-  "name": "log1x/filament-starter",
+  "name": "Thijs Veldwisch",
   "type": "project",
-  "description": "A beautiful starting point for your next TALL stack application.",
-  "keywords": [
-    "laravel",
-    "livewire",
-    "filament"
-  ],
+  "description": "",
+  "keywords": "",
   "license": "MIT",
   "require": {
     "php": "^8.2",
