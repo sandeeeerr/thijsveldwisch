@@ -26,6 +26,7 @@ class Post extends Model
         'user_id',
         'is_published',
         'published_at',
+        'videos',
     ];
 
     /**
@@ -37,6 +38,7 @@ class Post extends Model
         'content' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
+        'videos' => 'array',
     ];
 
     /**

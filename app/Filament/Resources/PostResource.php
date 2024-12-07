@@ -28,6 +28,7 @@ class PostResource extends Resource
      */
     protected static ?string $model = Post::class;
 
+
     /**
      * The resource icon.
      */
@@ -54,97 +55,105 @@ class PostResource extends Resource
     /**
      * Get the form for the resource.
      */
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\Grid::make()
-                    ->columns(3)
-                    ->schema([
-                        Forms\Components\Section::make()
-                            ->columnSpan(2)
-                            ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->placeholder('Enter a title')
-                                    ->live()
-                                    ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
-                                        if (($get('slug') ?? '') !== Str::slug($old) || $operation !== 'create') {
-                                            return;
-                                        }
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            Forms\Components\Grid::make()
+                ->columns(3)
+                ->schema([
+                    Forms\Components\Section::make()
+                        ->columnSpan(2)
+                        ->schema([
+                            Forms\Components\TextInput::make('title')
+                                ->placeholder('Enter a title')
+                                ->live()
+                                ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
+                                    if (($get('slug') ?? '') !== Str::slug($old) || $operation !== 'create') {
+                                        return;
+                                    }
 
-                                        $set('slug', Str::slug($state));
-                                    })
-                                    ->required()
-                                    ->maxLength(255)
-                                    ->autofocus(),
+                                    $set('slug', Str::slug($state));
+                                })
+                                ->required()
+                                ->maxLength(255)
+                                ->autofocus(),
 
-                                Forms\Components\Builder::make('content')
-                                    ->required()
-                                    ->columnSpanFull()
-                                    ->default([
-                                        ['type' => 'markdown'],
-                                    ])
-                                    ->blocks([
-                                        Builder\Block::make('markdown')
-                                            ->schema([
-                                                Forms\Components\MarkdownEditor::make('content')
-                                                    ->required(),
-                                            ]),
+                            Forms\Components\Builder::make('content')
+                                ->required()
+                                ->columnSpanFull()
+                                ->default([
+                                    ['type' => 'markdown'],
+                                ])
+                                ->blocks([
+                                    Builder\Block::make('markdown')
+                                        ->schema([
+                                            Forms\Components\MarkdownEditor::make('content')
+                                                ->required(),
+                                        ]),
 
-                                        Builder\Block::make('figure')
-                                            ->schema([
-                                                CuratorPicker::make('image')
-                                                    ->required(),
+                                    Builder\Block::make('figure')
+                                        ->schema([
+                                            CuratorPicker::make('image')
+                                                ->required(),
 
-                                                Forms\Components\Fieldset::make()
-                                                    ->label('Details')
-                                                    ->schema([
-                                                        Forms\Components\TextInput::make('alt')
-                                                            ->label('Alt Text')
-                                                            ->placeholder('Enter alt text')
-                                                            ->required()
-                                                            ->maxLength(255),
+                                            Forms\Components\Fieldset::make()
+                                                ->label('Details')
+                                                ->schema([
+                                                    Forms\Components\TextInput::make('alt')
+                                                        ->label('Alt Text')
+                                                        ->placeholder('Enter alt text')
+                                                        ->required()
+                                                        ->maxLength(255),
 
-                                                        Forms\Components\TextInput::make('caption')
-                                                            ->placeholder('Enter a caption')
-                                                            ->maxLength(255),
-                                                    ]),
+                                                    Forms\Components\TextInput::make('caption')
+                                                        ->placeholder('Enter a caption')
+                                                        ->maxLength(255),
+                                                ]),
+                                        ]),
+                                ]),
 
-                                            ]),
-                                    ]),
-                            ]),
+                            // Voeg hier het veld voor video's toe
+                            Forms\Components\FileUpload::make('videos')
+                                ->label('Videos')
+                                ->multiple() // Ondersteunt meerdere bestanden
+                                ->maxSize(10240) // Max 10 MB
+                                ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv']) // Alleen videoformaten
+                                ->directory('videos') // Specificeer de opslaglocatie
+                                ->enableReordering(), // Gebruikers kunnen video's herschikken
+                        ]),
 
-                        Forms\Components\Section::make()
-                            ->columnSpan(1)
-                            ->schema([
-                                Forms\Components\TextInput::make('slug')
-                                    ->placeholder('Enter a slug')
-                                    ->alphaDash()
-                                    ->required()
-                                    ->unique(ignoreRecord: true)
-                                    ->maxLength(255),
+                    Forms\Components\Section::make()
+                        ->columnSpan(1)
+                        ->schema([
+                            Forms\Components\TextInput::make('slug')
+                                ->placeholder('Enter a slug')
+                                ->alphaDash()
+                                ->required()
+                                ->unique(ignoreRecord: true)
+                                ->maxLength(255),
 
-                                Forms\Components\Select::make('user_id')
-                                    ->label('Author')
-                                    ->relationship('user', 'name')
-                                    ->default(fn () => auth()->id())
-                                    ->searchable()
-                                    ->required(),
+                            Forms\Components\Select::make('user_id')
+                                ->label('Author')
+                                ->relationship('user', 'name')
+                                ->default(fn () => auth()->id())
+                                ->searchable()
+                                ->required(),
 
-                                CuratorPicker::make('image_id')
-                                    ->label('Featured Image'),
+                            CuratorPicker::make('image_id')
+                                ->label('Featured Image'),
 
-                                Forms\Components\DatePicker::make('published_at')
-                                    ->label('Publish Date')
-                                    ->default(now())
-                                    ->required(),
+                            Forms\Components\DatePicker::make('published_at')
+                                ->label('Publish Date')
+                                ->default(now())
+                                ->required(),
 
-                                Forms\Components\Toggle::make('is_published')
-                                    ->label('Published')
-                                    ->required(),
-                            ]),
-                    ]),
-            ]);
+                            Forms\Components\Toggle::make('is_published')
+                                ->label('Published')
+                                ->required(),
+                        ]),
+                ]),
+        ]);
     }
 
     /**
