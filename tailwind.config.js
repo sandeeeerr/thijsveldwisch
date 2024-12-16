@@ -14,6 +14,12 @@ module.exports = {
       colors: {
         primary: colors.blue,
       },
+      fontFamily: {
+        'neue-haas': ['"Neue Haas Display"', 'sans-serif'],
+      },
+      fontWeight: {
+        normal: '300', // Standaard font-normal aanpassen naar 300
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

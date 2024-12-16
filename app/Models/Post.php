@@ -27,6 +27,8 @@ class Post extends Model
         'is_published',
         'published_at',
         'videos',
+        'full_width',
+        'post_type', 
     ];
 
     /**
@@ -52,13 +54,35 @@ class Post extends Model
     }
 
     /**
-     * Get the featured image for the post.
+     * Get the featured media (image or video) for the post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function image()
+    public function media()
     {
-        return $this->belongsTo(Media::class);
+        return $this->belongsTo(Media::class, 'image_id'); // image_id kan nu ook een video zijn
+    }
+
+    /**
+     * Check if the featured media is a video.
+     *
+     * @return bool
+     */
+    public function getIsVideoAttribute()
+    {
+        $media = $this->media;
+
+        return $media && in_array($media->mime_type, ['video/mp4', 'video/avi', 'video/mkv']);
+    }
+
+    /**
+     * Retrieve the media URL (image or video).
+     *
+     * @return string|null
+     */
+    public function getMediaUrlAttribute()
+    {
+        return $this->media ? $this->media->getUrl() : null;
     }
 
     /**

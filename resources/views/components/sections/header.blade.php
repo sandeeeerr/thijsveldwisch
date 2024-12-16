@@ -1,24 +1,31 @@
-<header class="text-white bg-black">
-  <x-container>
-    <nav class="flex items-center justify-between py-4">
-      <a
-        wire:navigate
-        href="/"
-        class="flex items-center flex-shrink-0 mr-auto"
-        aria-label="{{ config('app.name') }}"
-      >
-        <x-logo />
-      </a>
+<header class="text-white bg-transparent w-full text-center sticky top-0 mix-blend-difference px-2.5">
+    <nav class="grid grid-cols-4 py-1 gap-4 items-center">
+      <!-- Kolom 2: Menu Item 1 -->
+      <div class="flex justify-center">
+        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
+          Thijs Veldwisch
+        </a>
+      </div>
 
-      <div>
-        <x-button
-          :icon="Auth::check() ? 'heroicon-o-cog' : 'heroicon-s-user'"
-          size="xs"
-          :url="Filament\Pages\Dashboard::getUrl()"
-        >
-          {{ Auth::check() ? 'Manage' : 'Login' }}
-        </x-button>
+      <!-- Kolom 2: Menu Item 1 -->
+      <div class="flex justify-center">
+        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
+          Index
+        </a>
+      </div>
+
+      <!-- Kolom 3: Menu Item 2 -->
+      <div class="flex justify-center">
+        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
+          Information
+        </a>
+      </div>
+
+      <!-- Kolom 4: Menu Item 3 -->
+      <div class="flex justify-center">
+        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
+          Contact
+        </a>
       </div>
     </nav>
-  </x-container>
 </header>

@@ -126,6 +126,17 @@ public static function form(Form $form): Form
                     Forms\Components\Section::make()
                         ->columnSpan(1)
                         ->schema([
+                            Forms\Components\TextInput::make('post_type')
+                                ->label('Post Type')
+                                ->placeholder('Enter a custom post type')
+                                ->required()
+                                ->maxLength(255),
+
+                            Forms\Components\Toggle::make('full_width')
+                                ->label('Full Width')
+                                ->helperText('Set the post to full width layout.')
+                                ->default(false),
+
                             Forms\Components\TextInput::make('slug')
                                 ->placeholder('Enter a slug')
                                 ->alphaDash()
@@ -141,8 +152,11 @@ public static function form(Form $form): Form
                                 ->required(),
 
                             CuratorPicker::make('image_id')
-                                ->label('Featured Image'),
-
+                                ->label('Featured Media')
+                                ->acceptedFileTypes(['image/*', 'video/mp4', 'video/avi', 'video/mkv'])
+                                ->helperText('Upload an image or a video.')
+                                ->required(),
+                            
                             Forms\Components\DatePicker::make('published_at')
                                 ->label('Publish Date')
                                 ->default(now())
@@ -167,14 +181,14 @@ public static function form(Form $form): Form
                     ->sortable()
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('post_type')
+                    ->label('Post Type')
+                    ->sortable()
+                    ->searchable(),
+                
                 CuratorColumn::make('image')
                     ->circular()
                     ->size(32),
-
-                Tables\Columns\TextColumn::make('user.name')
-                    ->label('Author')
-                    ->badge()
-                    ->sortable(),
 
                 Tables\Columns\IconColumn::make('is_published')
                     ->label('Published')
