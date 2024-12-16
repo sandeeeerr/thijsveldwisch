@@ -1,12 +1,11 @@
 <div class="px-2.5 md:px-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5md:gap-4 my-32 z-0">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5md:gap-4 my-20 md:my-32 z-0">
       @foreach ($posts as $post)
         <div 
-          class="bg-white flex items-center justify-between px-6 hover:px-24 trasistion ease-in-out duration-300 cursor-pointer
+          class="bg-white flex items-center justify-between px-4 md:px-6 hover:px-8 md:hover:px-24 trasistion ease-in-out duration-300 cursor-pointer
           @if($post->full_width) col-span-2 aspect-[16/9] @else aspect-square @endif"
           class="*:transition group mb-4 cursor-pointer "
-          href="{{ $post->url }}"
-          wire:navigate
+          href="#"
         >
           <div class="flow-root w-full">
             <!-- Linkerzijde: Titel -->

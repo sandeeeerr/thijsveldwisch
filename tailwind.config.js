@@ -18,7 +18,7 @@ module.exports = {
         'neue-haas': ['"Neue Haas Display"', 'sans-serif'],
       },
       fontWeight: {
-        normal: '300', // Standaard font-normal aanpassen naar 300
+        normal: '300',
       },
     },
   },

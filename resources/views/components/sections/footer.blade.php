@@ -1,4 +1,4 @@
-<footer class="text-white bg-transparent w-full text-center sticky top-0 mix-blend-difference px-2.5 md:px-4 py-1 -z-10">
+<footer class="text-white bg-transparent w-full text-center sticky top-0 mix-blend-difference px-2.5 md:px-4 py-1 pb-6 md:pb-4 -z-10">
     <h2 class="text-3xl md:text-6xl xl:text-7xl text-left max-w-5xl">For new business inquiries please email to <a href="mailto:veldwischthijs@gmail.com" class="opacity-40 underline hover:opacity-100 ">veldwischthijs@gmail.com</a></h2>
     <div class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-20">
         <div class="mr-6 text-left text-lg md:text-xl">
