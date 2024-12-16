@@ -12,12 +12,11 @@ return new class extends Migration
             $table->boolean('full_width')->default(false)->after('content');
         });
     }
-    
+
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn('full_width');
         });
     }
-    
 };

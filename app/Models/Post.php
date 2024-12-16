@@ -28,7 +28,7 @@ class Post extends Model
         'published_at',
         'videos',
         'full_width',
-        'post_type', 
+        'post_type',
     ];
 
     /**

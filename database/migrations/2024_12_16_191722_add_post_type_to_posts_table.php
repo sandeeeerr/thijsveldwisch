@@ -12,11 +12,11 @@ return new class extends Migration
             $table->string('post_type')->nullable()->after('full_width');
         });
     }
-    
+
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn('post_type');
         });
-    }    
+    }
 };

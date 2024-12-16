@@ -1,5 +1,5 @@
-<div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 my-32">
+<div class="px-2.5 md:px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5md:gap-4 my-32 z-0">
       @foreach ($posts as $post)
         <div 
           class="bg-white flex items-center justify-between px-6 hover:px-24 trasistion ease-in-out duration-300 cursor-pointer
@@ -10,12 +10,12 @@
         >
           <div class="flow-root w-full">
             <!-- Linkerzijde: Titel -->
-            <div class="text-black text-left float-left text-xl">
+            <div class="text-black text-left float-left text-lg md:text-xl">
               {{ $post->title }}
             </div>
 
             <!-- Rechterzijde: Post Type -->
-            <div class="text-black text-right float-right text-xl">
+            <div class="text-black text-right float-right text-lg md:text-xl">
                 {{ $post->post_type }}
             </div>
           </div>
