@@ -1,5 +1,5 @@
 <div class="px-2.5 md:px-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5md:gap-4 my-20 md:my-32">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5md:gap-4 my-16 md:my-32">
       @foreach ($posts as $post)
         <div 
           class="bg-white flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-24 trasistion ease-in-out duration-300 cursor-pointer
