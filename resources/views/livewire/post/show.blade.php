@@ -51,8 +51,6 @@
       <div></div>
 
       <div class="col-span-3 text-left mt-16 text-white text-lg md:text-xl">
-        {{-- {{ $post->content }} --}}
-        {{dd($post)}}
         {!! Str::markdown($post->content) !!}
       </div>
     </div>
