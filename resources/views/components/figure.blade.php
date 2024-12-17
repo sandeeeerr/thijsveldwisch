@@ -12,7 +12,7 @@
   >
 
   @if ($caption)
-    <figcaption class="text-sm text-gray-500">
+    <figcaption class="text-lg text-white">
       {{ $caption }}
     </figcaption>
   @endif

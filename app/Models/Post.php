@@ -70,9 +70,8 @@ class Post extends Model
      */
     public function getIsVideoAttribute()
     {
-        $media = $this->media;
-
-        return $media && in_array($media->mime_type, ['video/mp4', 'video/avi', 'video/mkv']);
+        // Controleer of het type begint met 'video/'
+        return $this->media && Str::startsWith($this->media->type, 'video/');
     }
 
     /**
@@ -82,7 +81,7 @@ class Post extends Model
      */
     public function getMediaUrlAttribute()
     {
-        return $this->media ? $this->media->getUrl() : null;
+        return $this->media ? $this->media->url : null; // Gebruik 'url' attribuut
     }
 
     /**
