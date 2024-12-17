@@ -14,9 +14,9 @@
             'experience' => 'Experience',
             'info_contact' => 'Info+contact'
         ] as $key => $label)
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="text-center md:text-left text-lg md:text-xl">{{ $label }}</div>
-                <div class="text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
+                <div class="text-left text-lg md:text-xl">{{ $label }}</div>
+                <div class="text-left text-lg md:text-xl">
                     {!! Str::markdown(App\Models\Setting::get($key, "Default $label text")) !!}
                 </div>
                 <div></div>

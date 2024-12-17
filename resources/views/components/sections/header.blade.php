@@ -45,8 +45,8 @@
     <!-- Menu Items (2 kolommen) -->
     <div class="grid grid-cols-3 gap-8 text-xl text-center">
         <a href="/" class="hover:underline hover:text-gray-300">Index</a>
-        <a href="/" class="hover:underline hover:text-gray-300">Information</a>
-        <a href="/" class="hover:underline hover:text-gray-300">Contact</a>
+        <a href="/Information" class="hover:underline hover:text-gray-300">Information</a>
+        <a href="/Contact" class="hover:underline hover:text-gray-300">Contact</a>
     </div>
   </div>
 
