@@ -1,4 +1,4 @@
-<div class="px-2.5 md:px-4 mt-20 md:mt-36">
+<div class="px-2.5 md:px-4 mt-24 md:mt-36">
     <!-- Titel -->
     <h2 class="text-5xl md:text-9xl xl:text-10xl text-left max-w-5xl text-white w-2/3 my-3">
         Experimental

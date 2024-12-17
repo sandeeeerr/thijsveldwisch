@@ -1,11 +1,11 @@
 <div>
-  <div class="px-2.5 md:px-4 mt-20 md:mt-36">
+  <div class="px-2.5 md:px-4 mt-24 md:mt-36">
     <h1 class="text-3xl md:text-6xl xl:text-7xl text-left max-w-5xl text-white w-2/3 my-3">{{ $post->title }} @if($post->description) - {{ $post->description }} @endif </h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 ">
 
       <!-- Container met overlay -->
       <div 
-        class="relative flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-10 xl:hover:px-20 trasistion ease-in-out duration-300 mix-blend-difference col-span-2 aspect-aspect-square md:aspect-[16/9]"
+        class="relative flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-10 xl:hover:px-20 trasistion ease-in-out duration-300 mix-blend-difference col-span-2 aspect-square md:aspect-[16/9]"
       >
         @if ($post->media)
           @if ($post->is_video)
@@ -36,27 +36,26 @@
         @endif
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-0 md:gap-4 my-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 my-3">
       <!-- Eerste kolom: Tekst links uitgelijnd -->
       <div class="text-left">
         <p class="text-white text-lg md:text-xl">Services</p>
       </div>
     
       <!-- Tweede kolom: Tekst rechts uitgelijnd -->
-      <div class="text-right">
+      <div class="text-left md:text-right mt-1 w-1/2 md:w-auto md:mt-0">
         <p class="text-white text-lg md:text-xl">@if($post->services) {{ $post->services }} @endif</p>
       </div>
     
       <!-- Derde kolom: Leeg -->
       <div></div>
-
-      <div class="col-span-3 text-left mt-16 text-white text-lg md:text-xl">
-        {!! Str::markdown($post->content) !!}
-      </div>
     </div>
 
+    <div class="w-full md:w-2/3 text-left mt-6 md:mt-16 text-white text-lg md:text-xl">
+      {!! Str::markdown($post->content) !!}
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-20 md:mt-36">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-24 md:mt-36">
       @foreach ($post->attachments as $attachment)
         <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-300 cursor-pointer 
           @if($attachment['full_width']) col-span-2 aspect-[16/9] @else aspect-square @endif">
