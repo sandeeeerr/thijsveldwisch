@@ -46,7 +46,7 @@
     <div class="grid grid-cols-3 gap-8 text-xl text-center">
         <a href="/" class="hover:underline hover:text-gray-300">Index</a>
         <a href="/information" class="hover:underline hover:text-gray-300">Information</a>
-        <a href="/contact" class="hover:underline hover:text-gray-300">Contact</a>
+        <a href="mailto:veldwischthijs@gmail.com" class="hover:underline hover:text-gray-300">Contact</a>
     </div>
   </div>
 
@@ -71,7 +71,7 @@
 
     <!-- Derde kolom: Contact, rechts uitgelijnd -->
     <div class="flex justify-end">
-        <a href="/contact" class="text-white text-right text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
+        <a href="mailto:veldwischthijs@gmail.com" class="text-white text-right text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
             Contact
         </a>
     </div>

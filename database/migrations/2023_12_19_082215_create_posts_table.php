@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique()->index();
-            $table->json('content')->nullable();
+            $table->text('content')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();

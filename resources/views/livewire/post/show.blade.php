@@ -5,7 +5,7 @@
 
       <!-- Container met overlay -->
       <div 
-        class="relative flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-10 xl:hover:px-20 trasistion ease-in-out duration-300 mix-blend-difference col-span-2 aspect-[3/2] md:aspect-[16/9]"
+        class="relative flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-10 xl:hover:px-20 trasistion ease-in-out duration-300 mix-blend-difference col-span-2 aspect-aspect-square md:aspect-[16/9]"
       >
         @if ($post->media)
           @if ($post->is_video)
@@ -44,22 +44,16 @@
     
       <!-- Tweede kolom: Tekst rechts uitgelijnd -->
       <div class="text-right">
-        <p class="text-white text-lg md:text-xl">Visual design, Motion, Creative coding</p>
+        <p class="text-white text-lg md:text-xl">@if($post->services) {{ $post->services }} @endif</p>
       </div>
     
       <!-- Derde kolom: Leeg -->
       <div></div>
 
       <div class="col-span-3 text-left mt-16 text-white text-lg md:text-xl">
-        @foreach ($post->blocks as $block)
-          @switch($block->type)
-            @case('markdown')
-              @markdom($block->data->content)
-            @break
-            @default
-              @dump($block)
-          @endswitch
-        @endforeach
+        {{-- {{ $post->content }} --}}
+        {{dd($post)}}
+        {!! Str::markdown($post->content) !!}
       </div>
     </div>
 

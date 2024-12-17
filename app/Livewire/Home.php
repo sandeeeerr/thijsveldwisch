@@ -30,7 +30,7 @@ class Home extends Component
                     ->author(Schema::organization()->name($title))
             );
 
-        $posts = Post::all();
+        $posts = Post::published()->orderBy('sort_order')->get();
 
         return view('livewire.home', compact('posts'));
     }

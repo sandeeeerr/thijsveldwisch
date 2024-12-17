@@ -3,7 +3,7 @@
     @foreach ($posts as $post)
       <!-- Container met overlay -->
       <div 
-        class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-200 cursor-pointer
+        class="relative flex items-center justify-between px-2 md:px-4 hover:px-2 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-200 cursor-pointer
         @if($post->full_width) col-span-2 aspect-[16/9] @else aspect-square @endif"
         href="{{ route('post.show', $post) }}"
         wire:navigate

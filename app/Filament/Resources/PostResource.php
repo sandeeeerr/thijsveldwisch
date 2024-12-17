@@ -77,58 +77,58 @@ class PostResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->autofocus(),
+
+                                Forms\Components\TextInput::make('post_type')
+                                    ->label('Post Type')
+                                    ->helperText('This tag appears on the right side of the homepage.')
+                                    ->placeholder('Enter a custom post type')
+                                    ->required()
+                                    ->maxLength(255),
                                 
-                                Forms\Components\Textarea::make('description') // Nieuw veld voor description
+                                Forms\Components\Textarea::make('description')
                                     ->label('Description')
                                     ->rows(2)
                                     ->placeholder('Enter a description for this post')
+                                    ->helperText('Displayed after the title on the show page, keep it short.')
                                     ->nullable()
+                                    ->columnSpanFull()
+                                    ->maxLength(255),
+                                
+                                Forms\Components\TextInput::make('services')
+                                    ->label('Services')
+                                    ->placeholder('Enter the services')
+                                    ->nullable()
+                                    ->maxLength(255)
                                     ->columnSpanFull(),
 
-                                Forms\Components\Builder::make('content')
+                                Forms\Components\MarkdownEditor::make(name: 'content')
+                                    ->label('Content')
                                     ->required()
-                                    ->columnSpanFull()
-                                    ->default([
-                                        ['type' => 'markdown'],
-                                    ])
-                                    ->blocks([
-                                        Builder\Block::make('markdown')
-                                            ->schema([
-                                                Forms\Components\MarkdownEditor::make('content')
-                                                    ->required(),
-                                            ]),
-                                    ]),
+                                    ->columnSpanFull(),
 
-                                    Forms\Components\Repeater::make('attachments')
-                                        ->label('Attachments')
-                                        ->schema([
-                                            Forms\Components\FileUpload::make('file')
-                                                ->label('File')
-                                                ->required()
-                                                ->maxSize(10240)
-                                                ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
-                                                ->directory('attachments')
-                                                ->enableReordering(),
-                                            Forms\Components\Toggle::make('full_width')
-                                                ->label('Full Width')
-                                                ->default(false),
-                                        ])
-                                        ->addable()
-                                        ->reorderable()
-                                        ->deletable()
-                                        ->collapsible()
-                                        ->columnSpanFull(),
+                                Forms\Components\Repeater::make('attachments')
+                                    ->label('Attachments')
+                                    ->schema([
+                                        Forms\Components\FileUpload::make('file')
+                                            ->label('File')
+                                            ->maxSize(10240)
+                                            ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
+                                            ->directory('attachments')
+                                            ->enableReordering(),
+                                        Forms\Components\Toggle::make('full_width')
+                                            ->label('Full Width')
+                                            ->default(false),
+                                    ])
+                                    ->addable()
+                                    ->reorderable()
+                                    ->deletable()
+                                    ->collapsible()
+                                    ->columnSpanFull(),
                             ]),
 
                         Forms\Components\Section::make()
                             ->columnSpan(1)
                             ->schema([
-                            Forms\Components\TextInput::make('post_type')
-                                    ->label('Post Type')
-                                    ->placeholder('Enter a custom post type')
-                                    ->required()
-                                    ->maxLength(255),
-
                             Forms\Components\Toggle::make('full_width')
                                     ->label('Full Width')
                                     ->helperText('Set the post to full width layout.')
@@ -161,6 +161,7 @@ class PostResource extends Resource
 
                             Forms\Components\Toggle::make('is_published')
                                     ->label('Published')
+                                    ->default(true)
                                     ->required(),
                         ]),
                     ]),
@@ -173,6 +174,7 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->reorderable('sort_order')
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
@@ -210,6 +212,7 @@ class PostResource extends Resource
             ->filters([
                 //
             ])
+            ->defaultSort('sort_order')
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])

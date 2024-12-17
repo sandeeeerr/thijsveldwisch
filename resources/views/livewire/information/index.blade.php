@@ -1,6 +1,6 @@
 <div class="px-2.5 md:px-4 mt-20 md:mt-36">
     <!-- Titel -->
-    <h2 class="text-4xl md:text-9xl xl:text-10xl text-left max-w-5xl text-white w-2/3 my-3">
+    <h2 class="text-5xl md:text-9xl xl:text-10xl text-left max-w-5xl text-white w-2/3 my-3">
         Experimental
         <br>
         & Playful
@@ -14,7 +14,7 @@
             'experience' => 'Experience',
             'info_contact' => 'Info+contact'
         ] as $key => $label)
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="text-left text-lg md:text-xl">{{ $label }}</div>
                 <div class="text-left text-lg md:text-xl">
                     {!! Str::markdown(App\Models\Setting::get($key, "Default $label text")) !!}

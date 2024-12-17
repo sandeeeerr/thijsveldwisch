@@ -20,15 +20,15 @@ class PostOverview extends BaseWidget
 
         return [
             Stat::make('Total Posts', Number::format($posts))
-                ->description('The total number of posts')
+                ->description('Totale aantal kak projecten van Thijs Veldvis')
                 ->icon('heroicon-o-book-open'),
 
             Stat::make('Published Posts', Number::format($published))
-                ->description('The total number of published posts')
+                ->description('Totaal aantal niet geplaatst (snap ik)')
                 ->icon('heroicon-o-check-circle'),
 
             Stat::make('Draft Posts', Number::format($drafts))
-                ->description('The total number of draft posts')
+                ->description('Ik zou als ik jou was alles op draft doen')
                 ->icon('heroicon-o-x-circle'),
         ];
     }
