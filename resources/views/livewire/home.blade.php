@@ -33,7 +33,7 @@
         @else
           <!-- Placeholder wanneer er geen media is -->
           <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 z-0">
-            Article
+            
           </div>
         @endif
 
