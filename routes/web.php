@@ -1,7 +1,7 @@
 <?php
 
 use App\Livewire\Home;
-use App\Livewire\information\Index as InformationIndex;
+use App\Livewire\Information\Index as InformationIndex;
 use App\Livewire\Contact\Index as ContactIndex;
 use App\Livewire\Post\Show as PostShow;
 use Illuminate\Support\Facades\Route;
