@@ -108,10 +108,11 @@ class PostResource extends Resource
 
                                 Forms\Components\Repeater::make('attachments')
                                     ->label('Attachments')
+                                    ->maxSize(51200)
                                     ->schema([
                                         Forms\Components\FileUpload::make('file')
                                             ->label('File')
-                                            ->maxSize(10240)
+                                            ->maxSize(51200)
                                             ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
                                             ->directory('attachments')
                                             ->enableReordering(),
