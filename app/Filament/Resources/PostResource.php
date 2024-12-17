@@ -99,15 +99,25 @@ class PostResource extends Resource
                                             ]),
                                     ]),
 
-                                // Voeg hier het veld voor video's toe
-                                Forms\Components\FileUpload::make('attachments')
-                                    ->label('attachments')
-                                    ->multiple() // Ondersteunt meerdere bestanden
-                                    ->maxSize(10240) // Max 10 MB
-                                    ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv']) // Alleen videoformaten
-                                    ->directory('attachments') // Specificeer de opslaglocatie
-                                    ->enableReordering(), // Gebruikers kunnen video's herschikken
-                                    
+                                    Forms\Components\Repeater::make('attachments')
+                                        ->label('Attachments')
+                                        ->schema([
+                                            Forms\Components\FileUpload::make('file')
+                                                ->label('File')
+                                                ->required()
+                                                ->maxSize(10240)
+                                                ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
+                                                ->directory('attachments')
+                                                ->enableReordering(),
+                                            Forms\Components\Toggle::make('full_width')
+                                                ->label('Full Width')
+                                                ->default(false),
+                                        ])
+                                        ->addable()
+                                        ->reorderable()
+                                        ->deletable()
+                                        ->collapsible()
+                                        ->columnSpanFull(),
                             ]),
 
                         Forms\Components\Section::make()

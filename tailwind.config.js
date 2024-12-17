@@ -20,6 +20,10 @@ module.exports = {
       fontWeight: {
         normal: '300',
       },
+      fontSize: {
+        '10xl': '10rem', 
+        '11xl': '11rem', 
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

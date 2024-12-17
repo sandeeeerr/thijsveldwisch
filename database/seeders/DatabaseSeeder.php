@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use App\Models\User;
-use Filament\Notifications\Notification;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Filament\Notifications\Notification;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,5 +31,10 @@ class DatabaseSeeder extends Seeder
             ->body('You are ready to start building your application.')
             ->success()
             ->sendToDatabase($user);
+
+        Setting::updateOrCreate(['key' => 'services'], ['value' => 'Default services text here...']);
+        Setting::updateOrCreate(['key' => 'experience'], ['value' => 'Default experience text here...']);
+        Setting::updateOrCreate(['key' => 'about'], ['value' => 'Default about text here...']);
+        Setting::updateOrCreate(['key' => 'info_contact'], ['value' => 'Default info+contact text here...']);    
     }
 }

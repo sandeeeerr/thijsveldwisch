@@ -51,27 +51,30 @@
   </div>
 
   <!-- Desktop menu: zichtbaar vanaf md -->
-  <nav class="hidden md:grid md:grid-cols-4 gap-4 items-center py-1">
-      <div class="flex justify-center">
-        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300 trasistion ease-in-out duration-100">
-          Thijs Veldwisch
+  <nav class="hidden md:grid md:grid-cols-3 gap-4 items-center py-1">
+    <!-- Eerste kolom: Thijs Veldwisch, links uitgelijnd -->
+    <div class="flex justify-start">
+        <a href="/" class="text-white text-left text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
+            Thijs Veldwisch
         </a>
-      </div>
-      <div class="flex justify-center">
-        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300 trasistion ease-in-out duration-100">
-          Index
+    </div>
+
+    <!-- Tweede kolom: Index (links) en Information (rechts) -->
+    <div class="flex justify-between">
+        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
+            Index
         </a>
-      </div>
-      <div class="flex justify-center">
-        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300 trasistion ease-in-out duration-100">
-          Information
+        <a href="/information" class="text-white text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
+            Information
         </a>
-      </div>
-      <div class="flex justify-center">
-        <a href="/" class="text-white text-xl hover:underline hover:text-gray-300 trasistion ease-in-out duration-100">
-          Contact
+    </div>
+
+    <!-- Derde kolom: Contact, rechts uitgelijnd -->
+    <div class="flex justify-end">
+        <a href="/contact" class="text-white text-right text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
+            Contact
         </a>
-      </div>
+    </div>
   </nav>
   </header>
 

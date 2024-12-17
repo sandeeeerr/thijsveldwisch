@@ -40,14 +40,14 @@
         <!-- Tekst Overlay -->
         <div class="relative z-10 flex w-full justify-between text-white bg-transparent mix-blend-difference">
           <!-- Linkerzijde: Titel -->
-          <div class="text-left text-lg md:text-xl">
+          <h3 class="text-left text-lg md:text-xl">
             {{ $post->title }}
-          </div>
+          </h3>
 
           <!-- Rechterzijde: Post Type -->
-          <div class="text-right text-lg md:text-xl">
+          <h3 class="text-right text-lg md:text-xl">
             {{ $post->post_type }}
-          </div>
+          </h3>
         </div>
       </div>
     @endforeach
