@@ -1,6 +1,6 @@
 <div>
   <div class="px-2.5 md:px-4 mt-20 md:mt-36">
-    <h2 class="text-3xl md:text-6xl xl:text-7xl text-left max-w-5xl text-white w-2/3 my-3">{{ $post->title }}</h2>
+    <h2 class="text-3xl md:text-6xl xl:text-7xl text-left max-w-5xl text-white w-2/3 my-3">{{ $post->title }} @if($post->description) - {{ $post->description }} @endif </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 ">
 
       <!-- Container met overlay -->
@@ -36,7 +36,7 @@
         @endif
       </div>
     </div>
-    <div class="grid grid-cols-3 gap-4 my-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-0 md:gap-4 my-3">
       <!-- Eerste kolom: Tekst links uitgelijnd -->
       <div class="text-left">
         <p class="text-white text-lg md:text-xl">Services</p>
@@ -61,6 +61,29 @@
           @endswitch
         @endforeach
       </div>
+    </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-20 md:mt-36">
+      @foreach ($post->attachments as $attachment)
+        <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-300 cursor-pointer col-span-2 aspect-[3/2] md:aspect-[16/9]">
+          @if (Str::endsWith($attachment, ['.mp4', '.avi', '.mkv']))
+            <!-- Video -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+              <source src="{{ asset('storage/' . $attachment) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          @elseif (Str::endsWith($attachment, ['.jpg', '.jpeg', '.png', '.webp']))
+            <!-- Afbeelding -->
+            <img src="{{ asset('storage/' . $attachment) }}" alt="Attachment" class="absolute inset-0 w-full h-full object-cover">
+          @else
+            <!-- Onbekend bestandstype -->
+            <div class="absolute inset-0 w-full h-full object-cover bg-white">
+              Unsupported file format
+            </div>
+          @endif
+        </div>
+      @endforeach
     </div>
   </div>
 

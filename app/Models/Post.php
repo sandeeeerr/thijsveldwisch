@@ -20,13 +20,14 @@ class Post extends Model
      */
     protected $fillable = [
         'title',
+        'description',
         'slug',
         'content',
         'image_id',
         'user_id',
         'is_published',
         'published_at',
-        'videos',
+        'attachments',
         'full_width',
         'post_type',
     ];
@@ -40,7 +41,7 @@ class Post extends Model
         'content' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
-        'videos' => 'array',
+        'attachments' => 'array',
     ];
 
     /**

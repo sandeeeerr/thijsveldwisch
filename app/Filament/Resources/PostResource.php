@@ -77,6 +77,13 @@ class PostResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->autofocus(),
+                                
+                                Forms\Components\Textarea::make('description') // Nieuw veld voor description
+                                    ->label('Description')
+                                    ->rows(2)
+                                    ->placeholder('Enter a description for this post')
+                                    ->nullable()
+                                    ->columnSpanFull(),
 
                                 Forms\Components\Builder::make('content')
                                     ->required()
@@ -90,36 +97,17 @@ class PostResource extends Resource
                                                 Forms\Components\MarkdownEditor::make('content')
                                                     ->required(),
                                             ]),
-
-                                        Builder\Block::make('figure')
-                                            ->schema([
-                                                CuratorPicker::make('image')
-                                                    ->required(),
-
-                                                Forms\Components\Fieldset::make()
-                                                    ->label('Details')
-                                                    ->schema([
-                                                        Forms\Components\TextInput::make('alt')
-                                                            ->label('Alt Text')
-                                                            ->placeholder('Enter alt text')
-                                                            ->required()
-                                                            ->maxLength(255),
-
-                                                        Forms\Components\TextInput::make('caption')
-                                                            ->placeholder('Enter a caption')
-                                                            ->maxLength(255),
-                                                    ]),
-                                            ]),
                                     ]),
 
                                 // Voeg hier het veld voor video's toe
-                                Forms\Components\FileUpload::make('videos')
-                                    ->label('Videos')
+                                Forms\Components\FileUpload::make('attachments')
+                                    ->label('attachments')
                                     ->multiple() // Ondersteunt meerdere bestanden
                                     ->maxSize(10240) // Max 10 MB
                                     ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv']) // Alleen videoformaten
-                                    ->directory('videos') // Specificeer de opslaglocatie
+                                    ->directory('attachments') // Specificeer de opslaglocatie
                                     ->enableReordering(), // Gebruikers kunnen video's herschikken
+                                    
                             ]),
 
                         Forms\Components\Section::make()

@@ -1,9 +1,9 @@
-<div class="px-2.5 md:px-4 ">
+<div class="px-2.5 md:px-4">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-14 md:mt-20">
     @foreach ($posts as $post)
       <!-- Container met overlay -->
       <div 
-        class="relative flex items-center justify-between px-3 md:px-6 hover:px-8 md:hover:px-10 xl:hover:px-20 trasistion ease-in-out duration-300 cursor-pointer
+        class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-200 cursor-pointer
         @if($post->full_width) col-span-2 aspect-[16/9] @else aspect-square @endif"
         href="{{ route('post.show', $post) }}"
         wire:navigate
@@ -38,7 +38,7 @@
         @endif
 
         <!-- Tekst Overlay -->
-        <div class="relative z-10 flex w-full justify-between text-white">
+        <div class="relative z-10 flex w-full justify-between text-white bg-transparent mix-blend-difference">
           <!-- Linkerzijde: Titel -->
           <div class="text-left text-lg md:text-xl">
             {{ $post->title }}
