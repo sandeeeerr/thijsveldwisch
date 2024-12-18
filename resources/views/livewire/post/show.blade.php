@@ -36,28 +36,32 @@
         @endif
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 my-3">
-      <!-- Eerste kolom: Tekst links uitgelijnd -->
-      <div class="text-left">
-        <p class="text-white text-lg md:text-xl">Services</p>
+    @if($post->services)
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 my-3">
+        <!-- Eerste kolom: Tekst links uitgelijnd -->
+        <div class="text-left">
+          <p class="text-white text-lg md:text-xl">Services</p>
+        </div>
+      
+        <!-- Tweede kolom: Tekst rechts uitgelijnd -->
+        <div class="text-left md:text-right mt-1 w-1/2 md:w-auto md:mt-0">
+          <p class="text-white text-lg md:text-xl ">@if($post->services) {{ $post->services }} @endif</p>
+        </div>
+      
+        <!-- Derde kolom: Leeg -->
+        <div></div>
       </div>
-    
-      <!-- Tweede kolom: Tekst rechts uitgelijnd -->
-      <div class="text-left md:text-right mt-1 w-1/2 md:w-auto md:mt-0">
-        <p class="text-white text-lg md:text-xl ">@if($post->services) {{ $post->services }} @endif</p>
-      </div>
-    
-      <!-- Derde kolom: Leeg -->
-      <div></div>
-    </div>
+    @endif
 
-    <div class="w-full md:w-2/3 text-left mt-6 md:mt-16 text-white text-lg md:text-xl">
-      {!! Str::markdown($post->content) !!}
-    </div>
+    @if ($post->content)
+      <div class="w-full md:w-2/3 text-left mt-6 md:mt-16 text-white text-lg md:text-xl">
+        {!! Str::markdown($post->content) !!}
+      </div>
+    @endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-24 md:mt-36">
       @foreach ($post->attachments as $attachment)
-        <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 transition ease-in-out duration-300 cursor-pointer
+        <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 transition ease-in-out duration-300
           {{ $attachment['full_width'] ? 'col-span-1 md:col-span-2 aspect-[16/9]' : 'aspect-square' }}">
           
           @if (Str::endsWith($attachment['file'], ['.mp4', '.avi', '.mkv']))
@@ -71,7 +75,7 @@
             <img src="{{ asset('storage/' . $attachment['file']) }}" alt="Attachment" class="absolute inset-0 w-full h-full object-cover">
           @else
             <!-- Onbekend bestandstype -->
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-600">
+            <div class="absolute inset-0 flex items-center justify-center bg-black text-white">
               Unsupported file format
             </div>
           @endif

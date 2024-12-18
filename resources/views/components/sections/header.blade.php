@@ -27,7 +27,7 @@
       x-cloak 
       class="fixed inset-0 bg-opacity-60 bg-black/70 backdrop-blur-md text-white flex flex-col justify-center items-center z-50 transition duration-300 ease-in-out "
   >
-    <nav class="fixed top-0 w-full px-2.5 md:px-4 grid grid-cols-2 items-center py-1 md:hidden z-100">
+    <nav class="fixed top-0 w-full px-2 md:px-4 grid grid-cols-2 items-center py-2 md:hidden z-100">
       <!-- Linkerkolom: Thijs Veldwisch -->
       <div class="text-left">
           <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
@@ -43,10 +43,16 @@
       </div>
     </nav>
     <!-- Menu Items (2 kolommen) -->
-    <div class="grid grid-cols-3 gap-8 text-xl text-center">
-        <a href="/" class="hover:underline hover:text-gray-300">Index</a>
-        <a href="/information" class="hover:underline hover:text-gray-300">Information</a>
-        <a href="mailto:veldwischthijs@gmail.com" class="hover:underline hover:text-gray-300">Contact</a>
+    <div class="grid grid-cols-3 gap-8 text-xl text-center w-full px-2 md:px-4">
+        <div class="flex justify-start">
+            <a href="/" class="hover:underline hover:text-gray-300">Index</a>
+        </div>
+        <div class="flex justify-center">
+            <a href="/information" class="hover:underline hover:text-gray-300">Information</a>
+        </div>
+        <div class="flex justify-end">
+            <a href="mailto:veldwischthijs@gmail.com" class="hover:underline hover:text-gray-300">Contact</a>
+        </div>
     </div>
   </div>
 
