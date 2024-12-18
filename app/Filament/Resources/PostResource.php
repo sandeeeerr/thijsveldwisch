@@ -148,7 +148,7 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->required(),
 
-                            Forms\Components\FileUpload::make('featured_media')
+                            Forms\Components\FileUpload::make('image_id')
                                     ->label('Featured Media')
                                     ->maxSize(51200)
                                     ->rules('file|max:51200')
