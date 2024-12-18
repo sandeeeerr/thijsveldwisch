@@ -103,7 +103,6 @@ class PostResource extends Resource
 
                                 Forms\Components\MarkdownEditor::make(name: 'content')
                                     ->label('Content')
-                                    ->required()
                                     ->columnSpanFull(),
 
                                 Forms\Components\Repeater::make('attachments')
