@@ -148,12 +148,10 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->required(),
 
-                            Forms\Components\FileUpload::make('image_id')
+                            CuratorPicker::make('image_id')
                                     ->label('Featured Media')
-                                    ->maxSize(51200)
                                     ->rules('file|max:51200')
-                                    ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
-                                    ->directory('attachments')
+                                    ->acceptedFileTypes(['image/*', 'video/mp4', 'video/avi', 'video/mkv'])
                                     ->helperText('Upload an image or a video.')
                                     ->required(),      
 
