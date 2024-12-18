@@ -148,14 +148,14 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->required(),
 
-                            CuratorPicker::make('image_id')
+                            Forms\Components\FileUpload::make('featured_media')
                                     ->label('Featured Media')
                                     ->maxSize(51200)
                                     ->rules('file|max:51200')
                                     ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
-                                    ->directory('attachments')                                 
+                                    ->directory('attachments')
                                     ->helperText('Upload an image or a video.')
-                                    ->required(),
+                                    ->required(),      
 
                             Forms\Components\DatePicker::make('published_at')
                                     ->label('Publish Date')
