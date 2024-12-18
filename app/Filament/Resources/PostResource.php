@@ -150,7 +150,6 @@ class PostResource extends Resource
 
                             CuratorPicker::make('image_id')
                                     ->label('Featured Media')
-                                    ->rules('file|max:51200')
                                     ->maxSize(51200)
                                     ->acceptedFileTypes(['image/*', 'video/mp4', 'video/avi', 'video/mkv'])
                                     ->helperText('Upload an image or a video.')
