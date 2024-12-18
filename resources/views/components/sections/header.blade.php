@@ -3,9 +3,9 @@
   x-data="{ open: false }" 
   :class="open ? 'mix-blend-normal' : 'mix-blend-difference'" 
 >
-  <header class="text-white bg-transparent w-full sticky px-2.5 md:px-4">
+  <header class="text-white bg-transparent w-full sticky px-2 md:px-4">
   <!-- Mobiele navigatie: 2 kolommen -->
-  <nav class="grid grid-cols-2 items-center py-1 md:hidden">
+  <nav class="grid grid-cols-2 items-center py-2 md:hidden">
     <!-- Linkerkolom: Thijs Veldwisch -->
     <div class="text-left">
         <a href="/" class="text-white text-xl hover:underline hover:text-gray-300">
@@ -51,7 +51,7 @@
   </div>
 
   <!-- Desktop menu: zichtbaar vanaf md -->
-  <nav class="hidden md:grid md:grid-cols-3 gap-4 items-center py-1">
+  <nav class="hidden md:grid md:grid-cols-3 items-center py-4">
     <!-- Eerste kolom: Thijs Veldwisch, links uitgelijnd -->
     <div class="flex justify-start">
         <a href="/" class="text-white text-left text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">

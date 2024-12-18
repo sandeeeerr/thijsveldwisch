@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
 
-  <body class="font-neue-haas font-normal flex flex-col text-base leading-normal tracking-normal text-gray-800 bg-black">
+  <body class="font-neue-haas font-normal flex flex-col text-base tracking-normal text-gray-800 bg-black leading-normal">
     <div class="flex flex-col min-h-screen">
       <div class="container mx-auto max-w-[1920px]">
         <x-sections.header />

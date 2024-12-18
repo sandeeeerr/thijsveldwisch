@@ -1,5 +1,5 @@
-<div class="px-2.5 md:px-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-14 md:mt-20">
+<div class="px-2 md:px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-14 md:mt-20">
     @foreach ($posts as $post)
       <!-- Container met overlay -->
       <div 

@@ -1,5 +1,5 @@
 <div>
-  <div class="px-2.5 md:px-4 mt-24 md:mt-36">
+  <div class="px-2 md:px-4 mt-24 md:mt-36">
     <h1 class="text-3xl md:text-6xl xl:text-7xl text-left max-w-5xl text-white w-2/3 my-3">{{ $post->title }} @if($post->description) - {{ $post->description }} @endif </h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 ">
 
@@ -44,7 +44,7 @@
     
       <!-- Tweede kolom: Tekst rechts uitgelijnd -->
       <div class="text-left md:text-right mt-1 w-1/2 md:w-auto md:mt-0">
-        <p class="text-white text-lg md:text-xl">@if($post->services) {{ $post->services }} @endif</p>
+        <p class="text-white text-lg md:text-xl ">@if($post->services) {{ $post->services }} @endif</p>
       </div>
     
       <!-- Derde kolom: Leeg -->

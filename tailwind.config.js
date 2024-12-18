@@ -21,8 +21,13 @@ module.exports = {
         normal: '300',
       },
       fontSize: {
+        lg: ['1.125rem', '1.35rem'],
+        xl: ['1.25rem', '1.45rem'],
         '10xl': '10rem', 
         '11xl': '11rem', 
+      },
+      lineHeight: {
+        DEFAULT: '1', // Dit is gelijk aan 'leading-tight'
       },
     },
   },
