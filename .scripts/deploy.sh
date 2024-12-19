@@ -28,4 +28,7 @@ php artisan migrate --force
 php artisan up
 
 echo "Deployment finished!"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 034aef1e2845fa43316aa41574f3a7551c90d967
