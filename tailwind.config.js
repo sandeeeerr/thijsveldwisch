@@ -27,7 +27,7 @@ module.exports = {
         '11xl': '11rem', 
       },
       lineHeight: {
-        DEFAULT: '1', // Dit is gelijk aan 'leading-tight'
+        DEFAULT: '1',
       },
     },
   },

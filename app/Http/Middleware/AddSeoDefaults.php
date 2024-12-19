@@ -57,7 +57,7 @@ class AddSeoDefaults
 
             Meta::make()
                 ->name('msapplication-TileColor')
-                ->content('#3b82f6'),
+                ->content('#000000'),
 
             OpenGraph::make()
                 ->property('title')

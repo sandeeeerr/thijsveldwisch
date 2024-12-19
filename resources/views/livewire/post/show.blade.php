@@ -52,7 +52,6 @@
         <div></div>
       </div>
     @endif
-
     @if ($post->content)
       <div class="w-full md:w-2/3 text-left mt-6 md:mt-16 text-white text-lg md:text-xl">
         {!! Str::markdown($post->content) !!}
@@ -60,6 +59,7 @@
     @endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4 mt-24 md:mt-36">
+      @if ($post->attachments)
       @foreach ($post->attachments as $attachment)
         <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 transition ease-in-out duration-300
           {{ $attachment['full_width'] ? 'col-span-1 md:col-span-2 aspect-[16/9]' : 'aspect-square' }}">
@@ -81,7 +81,7 @@
           @endif
         </div>
       @endforeach
-   
+      @endif
     
     </div>
   </div>

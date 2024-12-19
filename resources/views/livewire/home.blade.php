@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-14 md:mt-20">
     @foreach ($posts as $post)
       <!-- Container met overlay -->
-      <div 
+      <a 
         class="relative flex items-center justify-between px-2 md:px-4 hover:px-2 md:hover:px-8 xl:hover:px-12 trasistion ease-in-out duration-200 cursor-pointer aspect-square
         @if($post->full_width) md:col-span-2 md:aspect-[16/9] @else md:aspect-square @endif"
         href="{{ route('post.show', $post) }}"
@@ -49,7 +49,7 @@
             {{ $post->post_type }}
           </h3>
         </div>
-      </div>
+      </a>
     @endforeach
 
     <!-- Geen posts -->
