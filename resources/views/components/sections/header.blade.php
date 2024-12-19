@@ -86,7 +86,7 @@
         <!-- Eerste kolom: Thijs Veldwisch, links uitgelijnd -->
         <div class="flex justify-start">
             <a href="/" class="text-white text-left text-xl hover:underline hover:text-gray-300 transition ease-in-out duration-100">
-                Thijs Veldwisch test push
+                Thijs Veldwisch auto
             </a>
         </div>
 
