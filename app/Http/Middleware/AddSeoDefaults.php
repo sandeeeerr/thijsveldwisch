@@ -87,7 +87,6 @@ class AddSeoDefaults
                 ->name('image')
                 ->content(asset('/apple-touch-icon.png')),
         ]);
-
         return $next($request);
     }
 }

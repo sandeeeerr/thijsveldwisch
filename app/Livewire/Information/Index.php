@@ -17,7 +17,7 @@ class Index extends Component
         // SEO Configuratie
         seo()
             ->title($title = 'Information - ' . config('app.name'))
-            ->description($description = 'Lorem ipsum...')
+            ->description($description = 'Experimental and playful visual communication studio.')
             ->canonical($url = route('information'))
             ->addSchema(
                 Schema::webPage()
