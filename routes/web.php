@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 Route::get('/', Home::class)->name('home');
-Route::get('/article/{post:slug}', PostShow::class)->name('post.show');
+Route::get('/work/{post:slug}', PostShow::class)->name('post.show');
 
 Route::get('/information', InformationIndex::class)->name('information');
 
