@@ -11,9 +11,10 @@
           @if ($post->is_video)
             <!-- Video als achtergrond -->
             <video 
-              autoplay 
+            autoPlay 
               loop 
-              muted 
+              muted="true" 
+              preload="auto"
               playsinline 
               class="absolute inset-0 w-full h-full object-cover z-0"
             >
@@ -63,13 +64,21 @@
       @foreach ($post->attachments as $attachment)
         <div class="relative flex items-center justify-between px-2 md:px-4 hover:px-4 md:hover:px-8 xl:hover:px-12 transition ease-in-out duration-300
           {{ $attachment['full_width'] ? 'col-span-1 md:col-span-2 aspect-[16/9]' : 'aspect-square' }}">
-          
+          @if ($attachment['has_audio'])
+            <a 
+              class="absolute bottom-4 left-4 text-left text-lg md:text-xl z-50 text-white hover:underline mix-blend-difference"
+              onclick="toggleMute(this)"
+              data-video-id="video-{{ $loop->index }}">
+              Unmute
+            </a>
+          @endif
           @if (Str::endsWith($attachment['file'], ['.mp4', '.avi', '.mkv']))
             <!-- Video -->
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <video id="video-{{ $loop->index }}"  autoPlay preload="auto" loop muted="true" playsinline class="absolute inset-0 w-full h-full object-cover">
               <source src="{{ asset('storage/' . $attachment['file']) }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+
           @elseif (Str::endsWith($attachment['file'], ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', 'avif']))
             <!-- Afbeelding -->
             <img src="{{ asset('storage/' . $attachment['file']) }}" alt="Attachment" class="absolute inset-0 w-full h-full object-cover">

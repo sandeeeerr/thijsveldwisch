@@ -111,12 +111,14 @@ class PostResource extends Resource
                                         Forms\Components\FileUpload::make('file')
                                             ->label('File')
                                             ->maxSize(51200)
-                                            ->rules('file|max:51200')
                                             ->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mkv', 'image/*'])
                                             ->directory('attachments')
                                             ->enableReordering(),
                                         Forms\Components\Toggle::make('full_width')
                                             ->label('Full Width')
+                                            ->default(false),
+                                        Forms\Components\Toggle::make('has_audio')
+                                            ->label('Has Audio')
                                             ->default(false),
                                     ])
                                     ->addable()

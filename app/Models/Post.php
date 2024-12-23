@@ -29,6 +29,7 @@ class Post extends Model
         'published_at',
         'attachments',
         'full_width',
+        'has_audio',
         'post_type',
         'services',
         'sort_order',
@@ -43,6 +44,7 @@ class Post extends Model
         'is_published' => 'boolean',
         'published_at' => 'datetime',
         'attachments' => 'array',
+        'has_audio' => 'boolean',
     ];
 
     /**

@@ -17,7 +17,7 @@
           @if ($post->is_video)
             <!-- Video als achtergrond -->
             <video 
-              autoplay 
+              autoPlay 
               loop 
               muted 
               playsinline 
